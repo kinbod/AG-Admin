@@ -6,12 +6,9 @@ import com.github.wxiaoqi.security.api.vo.log.LogInfo;
 import com.github.wxiaoqi.security.api.vo.user.UserInfo;
 import com.github.wxiaoqi.security.auth.client.config.ServiceAuthConfig;
 import com.github.wxiaoqi.security.auth.client.config.UserAuthConfig;
-import com.github.wxiaoqi.security.auth.client.feign.ServiceAuthFeign;
+import com.github.wxiaoqi.security.auth.client.jwt.ServiceAuthUtil;
 import com.github.wxiaoqi.security.auth.client.jwt.UserAuthUtil;
-import com.github.wxiaoqi.security.common.constant.CommonConstants;
 import com.github.wxiaoqi.security.common.context.BaseContextHandler;
-import com.github.wxiaoqi.security.common.msg.BaseResponse;
-import com.github.wxiaoqi.security.common.msg.ObjectRestResponse;
 import com.github.wxiaoqi.security.common.msg.auth.TokenErrorResponse;
 import com.github.wxiaoqi.security.common.msg.auth.TokenForbiddenResponse;
 import com.github.wxiaoqi.security.common.util.ClientUtil;
@@ -44,7 +41,7 @@ import java.util.regex.Pattern;
  */
 @Component
 @Slf4j
-public class SessionAccessFilter extends ZuulFilter {
+public class AdminAccessFilter extends ZuulFilter {
 
     @Autowired
     private IUserService userService;
@@ -66,7 +63,7 @@ public class SessionAccessFilter extends ZuulFilter {
     private UserAuthConfig userAuthConfig;
 
     @Autowired
-    private ServiceAuthFeign serviceAuthFeign;
+    private ServiceAuthUtil serviceAuthUtil;
 
     @Override
     public String filterType() {
@@ -91,33 +88,25 @@ public class SessionAccessFilter extends ZuulFilter {
         final String method = request.getMethod();
         BaseContextHandler.setToken(null);
         // 不进行拦截的地址
-        if (isStartWith(requestUri))
+        if (isStartWith(requestUri)) {
             return null;
+        }
         IJWTInfo user = null;
         try {
-            user = getJWTUser(request);
-            ctx.addZuulRequestHeader(userAuthConfig.getTokenHeader(),BaseContextHandler.getToken());
+            user = getJWTUser(request,ctx);
         } catch (Exception e) {
             setFailedRequest(JSON.toJSONString(new TokenErrorResponse(e.getMessage())),200);
             return null;
         }
-
         List<PermissionInfo> permissionInfos = userService.getAllPermissionInfo();
         // 判断资源是否启用权限约束
         Collection<PermissionInfo> result = getPermissionInfos(requestUri, method, permissionInfos);
         if(result.size()>0){
             checkAllow(requestUri, method, ctx, user.getUniqueName());
         }
-
         // 申请客户端密钥头
-        BaseResponse resp = serviceAuthFeign.getAccessToken(serviceAuthConfig.getClientId(), serviceAuthConfig.getClientSecret());
-        if(resp.getStatus() == 200){
-            ObjectRestResponse<String> clientToken = (ObjectRestResponse<String>) resp;
-            ctx.addZuulRequestHeader(serviceAuthConfig.getTokenHeader(),clientToken.getData());
-        }else {
-            setFailedRequest(JSON.toJSONString(new BaseResponse(CommonConstants.EX_CLIENT_INVALID_CODE,"Token Error or Token Expired!")),200);
-        }
-
+        ctx.addZuulRequestHeader(serviceAuthConfig.getTokenHeader(),serviceAuthUtil.getClientToken());
+        BaseContextHandler.remove();
         return null;
     }
 
@@ -154,13 +143,15 @@ public class SessionAccessFilter extends ZuulFilter {
     /**
      * 返回session中的用户信息
      * @param request
+     * @param ctx
      * @return
      */
-    private IJWTInfo getJWTUser(HttpServletRequest request) throws Exception {
+    private IJWTInfo getJWTUser(HttpServletRequest request,RequestContext ctx) throws Exception {
         String authToken = request.getHeader(userAuthConfig.getTokenHeader());
         if(StringUtils.isBlank(authToken)){
             authToken = request.getParameter("token");
         }
+        ctx.addZuulRequestHeader(userAuthConfig.getTokenHeader(),authToken);
         BaseContextHandler.setToken(authToken);
         return userAuthUtil.getInfoFromToken(authToken);
     }
@@ -196,7 +187,7 @@ public class SessionAccessFilter extends ZuulFilter {
         } else{
             PermissionInfo[] pms =  result.toArray(new PermissionInfo[]{});
             PermissionInfo pm = pms[0];
-            if(!method.equals("GET")){
+            if(!"GET".equals(method)){
                 setCurrentUserInfoAndLog(ctx, username, pm);
             }
         }
@@ -211,8 +202,9 @@ public class SessionAccessFilter extends ZuulFilter {
     private boolean isStartWith(String requestUri) {
         boolean flag = false;
         for (String s : startWith.split(",")) {
-            if (requestUri.startsWith(s))
+            if (requestUri.startsWith(s)) {
                 return true;
+            }
         }
         return flag;
     }

@@ -31,10 +31,12 @@ public class UserAuthRestInterceptor extends HandlerInterceptorAdapter {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         // 配置该注解，说明不进行用户拦截
         IgnoreUserToken annotation = handlerMethod.getBeanType().getAnnotation(IgnoreUserToken.class);
-        if (annotation == null)
+        if (annotation == null) {
             annotation = handlerMethod.getMethodAnnotation(IgnoreUserToken.class);
-        if(annotation!=null)
+        }
+        if(annotation!=null) {
             return super.preHandle(request, response, handler);
+        }
 
         String token = request.getHeader(userAuthConfig.getTokenHeader());
         IJWTInfo infoFromToken = userAuthUtil.getInfoFromToken(token);
@@ -42,5 +44,11 @@ public class UserAuthRestInterceptor extends HandlerInterceptorAdapter {
         BaseContextHandler.setName(infoFromToken.getName());
         BaseContextHandler.setUserID(infoFromToken.getId());
         return super.preHandle(request, response, handler);
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        BaseContextHandler.remove();
+        super.afterCompletion(request, response, handler, ex);
     }
 }
