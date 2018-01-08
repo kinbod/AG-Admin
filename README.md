@@ -4,17 +4,9 @@ AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有
 ## 推荐🌧
 考虑许多码友对于Spring Cloud的前后端分离和微服务实战有较多的疑问。老A专门录制课程如下，便于对AG-Admin更深入的了解
 
-### AG-Admin初级课程地址：
-http://edu.csdn.net/course/detail/5840
-
+### 联系老A，`QQ：463540703`，`微信：whb2lyx`，进行课程购买
 
 ### QQ群号：169824183
-
-## AG线上最新体验地址，感谢【[千铭云](https://www.chanmir.com/?u=45433C)】赞助的服务器。
-
-http://43.248.136.159:9999/
-
-## [老A专属优惠链接](https://www.chanmir.com/?u=45433C)，优惠卷：2B3158
 
 ![img](http://upload-images.jianshu.io/upload_images/5700335-002735d1727ec11b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -24,6 +16,15 @@ http://43.248.136.159:9999/
 ---------
 
 # 更新日志
+### 2018年1月7日
+- 增加监控模块 
+![image.png](http://upload-images.jianshu.io/upload_images/5700335-901b5df8a68f3922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](http://upload-images.jianshu.io/upload_images/5700335-21792b34eaa2e56e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+### 2018年1月1日
+- ace-auth增加服务注册和授权模块
+![image.png](http://upload-images.jianshu.io/upload_images/5700335-e83767c67c15c2e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ### 2017年11月17日 v2.2-SNARSHOT
 
 - ace-admin集成`ace-cache`
@@ -60,7 +61,7 @@ http://43.248.136.159:9999/
 ### 运行步骤
 - 运行数据库脚本：依次运行数据库：ace-admin/db/init.sql、ace-auth-server/db/init.sql
 - 修改配置数据库配置：ace-admin/src/main/resources/application.yml、ace-gate/src/main/resources/application.yml
-- 按`顺序`运行main类：CenterBootstrap（ace-center）、ConfigServerBootstrap（ace-config）、AdminBootstrap（ace-admin）、AuthBootstrap（ace-auth-server）、GateBootstrap（ace-gate）
+- 按`顺序`运行main类：CenterBootstrap（ace-center）、ConfigServerBootstrap（ace-config）、AuthBootstrap（ace-auth-server）、AdminBootstrap（ace-admin）、GateBootstrap（ace-gate）
 
 ### 项目结构
 ```
@@ -78,7 +79,9 @@ http://43.248.136.159:9999/
 │  │
 │  ├─ace-config---------------统一配置中心
 │  │
-│  └─ace-api------------------公共服务接口包
+│  ├─ace-api------------------公共服务接口包
+│  │
+│  ├─ace-demo-----------------示例服务代码
 │  │
 │  └─ace-sidebar--------------调用第三方语言
 │
