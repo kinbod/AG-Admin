@@ -1,17 +1,8 @@
-# AG-Admin
+# AG-Admin(`开源学习`）
 AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有统一授权、认证后台管理系统，其中包含具备用户管理、资源权限管理、网关API管理等多个模块，支持多业务系统并行开发，可以作为后端服务的开发脚手架。代码简洁，架构清晰，适合学习和直接项目中使用。核心技术采用Eureka、Fegin、Ribbon、Zuul、Hystrix、`JWT Token`、Mybatis等主要框架和中间件，前端采用`vue-element-admin`组件。 
-# AG-Enterprise（`企业版`）🎉
+### QQ群号：169824183
 
-- 提供`开箱即用的服务Cli`，减少开发人员的项目搭建成本，只需关注业务的开发实现，企业项目的开发利器；
-- 提供完善的`架构部署指南`，从单机部署到集群落地，减少部署弯路，让服务群更加稳定；
-- 提供各种`开发中间件`示例教程，包括：消息总线、增删改查脚手架和生成器;
-- 提供`分布式事务`解决方案和中间件，解决服务拆分后的事物控制问题;
-- 提供`服务运维`基础部署，监控服务的状态、服务的链路调用。
-
-### 第一批名额限制：100名
-特权：享有后续企业版的不断新增的功能。
-
-# AG-Enterprise（`企业版`）🎉
+# AG-Enterprise（`企业商用`）
 
 - 提供`开箱即用的服务Cli`，减少开发人员的项目搭建成本，只需关注业务的开发实现，企业项目的开发利器；
 - 减少人员技术学习成本（会`spring+myabtis+mvc`即可），由专人管控平台，非常适合`单体项目转型`、`语言转型`的项目团队；
@@ -20,41 +11,38 @@ AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有
 - 提供`分布式事务`解决方案和中间件，解决服务拆分后的事物控制问题;
 - 提供`服务运维`基础部署，监控服务的状态、服务的链路调用。
 
-### 第一批名额限制：200名，已上车：`11人`，前50名有优惠价格：1380，`享永久授权特权`，私聊老A：463540703。
-- 永久授权：享有后续企业版的不断新增的功能。
-- 一年授权：只享有企业版一年更新内容，来年需再次付费。
+### 第一批名额限制：200名，优惠价格：1680，`享终身授权特权`，私聊老A：463540703。
+- 终身授权说明：享有后续企业版的不断新增的功能。
 
+功能清单 | 开源版 | 企业版
+---|---|---
+用户管理|√|√
+角色管理|√|√
+菜单管理|√|√
+权限管理|√|√
+操作日志|√|√
+数据字典|×|`√`
+服务运维监控| ×|`√`
+完整用户认证 | × | `√`
+服务管理模块|×|`√`
+分布式事务|×|`√`
+2.0UI|×|`√`
+完整开发文档|×|`√`
+快速工程Cli|×|`√`
+跨服务数据聚合|×|`√`
+部门岗位|×|设计开发中
+多租户模块|×|设计开发中
+数据权限|×|设计开发中
+定时任务|×|设计开发中
 
-## 推荐🌧
-考虑许多码友对于Spring Cloud的前后端分离和微服务实战有较多的疑问。老A专门录制课程如下，便于对AG-Admin更深入的了解
-![image.png](http://upload-images.jianshu.io/upload_images/5700335-5c96c3af61306ae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-### 联系老A，`QQ：463540703`，`微信：whb2lyx`，进行课程购买
+![img](http://ofsc32t59.bkt.clouddn.com/18-02-07/1517971520689.jpg?imageView2/2/w/1240)
+![img](http://ofsc32t59.bkt.clouddn.com/18-02-07/1517971843392.jpg?imageView2/2/w/1240)
+![image.png](http://upload-images.jianshu.io/upload_images/5700335-d8e3ab4eb7111f86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![侧hi](http://upload-images.jianshu.io/upload_images/5700335-fa80b10fb16d4fe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### QQ群号：169824183
+### 联系老A，`QQ：463540703`，`微信：whb2lyx`，进行企业版购买
 
-![img](http://upload-images.jianshu.io/upload_images/5700335-002735d1727ec11b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-
-
----------
-
-# 更新日志
-### 2018年1月7日
-- 增加监控模块 
-
-![image.png](http://upload-images.jianshu.io/upload_images/5700335-901b5df8a68f3922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![image.png](http://upload-images.jianshu.io/upload_images/5700335-21792b34eaa2e56e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 2018年1月1日
-- ace-auth增加服务注册和授权模块
-
-![image.png](http://upload-images.jianshu.io/upload_images/5700335-e83767c67c15c2e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-### 2017年11月17日 v2.2-SNARSHOT
-
-- ace-admin集成`ace-cache`
-- ace-auth集成`rabbitmq`
+----
 
 
 # 模块说明
@@ -73,7 +61,16 @@ AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有
 因为采取了服务的分布，为了避免服务之间的调用“雪崩”，采用了`Hystrix`的作为熔断器，避免了服务之间的“雪崩”。
 
 ------
-# 启动指南
+
+# `启动指南`
+
+![img](http://upload-images.jianshu.io/upload_images/5700335-002735d1727ec11b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## AG-Admin教程推荐
+考虑许多码友对于Spring Cloud的前后端分离和微服务实战有较多的疑问。老A专门录制课程如下，便于对AG-Admin更深入的了解
+![image.png](http://upload-images.jianshu.io/upload_images/5700335-5c96c3af61306ae5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+### 联系老A，`QQ：463540703`，`微信：whb2lyx`，进行课程购买
+
 ## 须知
 因为AG-Admin是一个`前后端分离`的项目，所以后端的服务必须先启动，在后端服务启动完成后，再启动前端的工程。
 ## 最多人问：代码有漏
