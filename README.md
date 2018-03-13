@@ -1,8 +1,12 @@
 # AG-Admin(`开源学习`）
-AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有统一授权、认证后台管理系统，其中包含具备用户管理、资源权限管理、网关API管理等多个模块，支持多业务系统并行开发，可以作为后端服务的开发脚手架。代码简洁，架构清晰，适合学习和直接项目中使用。核心技术采用Eureka、Fegin、Ribbon、Zuul、Hystrix、`JWT Token`、Mybatis等主要框架和中间件，前端采用`vue-element-admin`组件。 
+AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有统一授权、认证后台管理系统，其中包含具备用户管理、资源权限管理、网关API管理等多个模块，支持多业务系统并行开发，可以作为后端服务的开发脚手架。代码简洁，架构清晰，适合学习和直接项目中使用。核心技术采用`Spring Boot2`以及`Spring Cloud (Finchley.M8)`相关核心组件，前端采用`vue-element-admin`组件。 
+
 ### QQ群号：169824183
+### 更新日志，查看[点击打开](https://gitee.com/geek_qi/ace-security/blob/master/README.md#%E5%BC%80%E6%BA%90%E7%89%88%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)
 
 # AG-Enterprise（`企业商用`）
+
+体验地址：http://118.126.104.133:81/
 
 - 提供`开箱即用的服务Cli`，减少开发人员的项目搭建成本，只需关注业务的开发实现，企业项目的开发利器；
 - 减少人员技术学习成本（会`spring+myabtis+mvc`即可），由专人管控平台，非常适合`单体项目转型`、`语言转型`的项目团队；
@@ -11,8 +15,7 @@ AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有
 - 提供`分布式事务`解决方案和中间件，解决服务拆分后的事物控制问题;
 - 提供`服务运维`基础部署，监控服务的状态、服务的链路调用。
 
-### 第一批名额限制：200名，优惠价格：1680，`享终身授权特权`，私聊老A：463540703。
-- 终身授权说明：享有后续企业版的不断新增的功能。
+### 第一批名额限制：200名，优惠价格：1680，`享终身授权特权`，示例证书：[点击打开](http://geek_qi.gitee.io/ag-admin/img/demo.pdf)，私聊老A：463540703。
 
 功能清单 | 开源版 | 企业版
 ---|---|---
@@ -21,29 +24,53 @@ AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有
 菜单管理|√|√
 权限管理|√|√
 操作日志|√|√
-数据字典|×|`√`
-服务运维监控| ×|`√`
-完整用户认证 | × | `√`
-服务管理模块|×|`√`
+服务运维监控| √|`√`
+服务管理模块|√|`√`
 分布式事务|×|`√`
-2.0UI|×|`√`
+数据字典|×|`√`
+新版UI|×|`√`
 完整开发文档|×|`√`
 快速工程Cli|×|`√`
 跨服务数据聚合|×|`√`
-部门岗位|×|设计开发中
-多租户模块|×|设计开发中
-数据权限|×|设计开发中
-定时任务|×|设计开发中
+服务动态路由|×|`√`
+部门岗位|×|`√`
+多租户模块|×|`√`
+数据权限|×|`√`
+分级授权|x|`√`
+定时任务|×|`√`
+附件服务|`Doing`|`Doing`
+消息服务|`Doing`|`Doing`
 
-![img](http://ofsc32t59.bkt.clouddn.com/18-02-07/1517971520689.jpg?imageView2/2/w/1240)
-![img](http://ofsc32t59.bkt.clouddn.com/18-02-07/1517971843392.jpg?imageView2/2/w/1240)
-![image.png](http://upload-images.jianshu.io/upload_images/5700335-d8e3ab4eb7111f86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![侧hi](http://upload-images.jianshu.io/upload_images/5700335-fa80b10fb16d4fe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+## 超级管理员
+![img](http://geek_qi.gitee.io/ag-admin/img/base.gif)
 
-### 联系老A，`QQ：463540703`，`微信：whb2lyx`，进行企业版购买
+## 分级租户管理员
+![img](http://geek_qi.gitee.io/ag-admin/img/preview2.gif)
+
+## 服务管理
+![img](http://geek_qi.gitee.io/ag-admin/img/service.gif)
 
 ----
+# 开源版更新日志
 
+### 2018.03.08 重大更新
+- 全面升级`Spring Boot 2.0.0.Release`&`Spring Cloud Finchley.M8`
+- 调整目录结构，移除ace-demo模块
+- zipkin链路模块升级
+- monitor监控模块优化
+- 增加Lucense全文搜索模块
+- 增加OSS附件服务模块
+
+### 2018.02.25
+- 增加服务管理模块
+
+![img](http://geek_qi.gitee.io/ag-admin/img/serviceManager.png)
+
+- 增加运维监控模块
+
+![img](http://geek_qi.gitee.io/ag-admin/img/zipkinManager.png)
+![img](http://geek_qi.gitee.io/ag-admin/img/eurekaManager.png)
+![img](http://geek_qi.gitee.io/ag-admin/img/monitorManager.png)
 
 # 模块说明
 ![image.png](http://upload-images.jianshu.io/upload_images/5700335-8d69f4e885a4ec85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -90,21 +117,17 @@ AG-Admin是国内首个基于`Spring Cloud`微`服务`化`开发平台`，具有
 ```
 ├─ace-security
 │  │  
-│  ├─ace-admin----------------管理端服务层
+│  ├─ace-modules--------------公共服务模块（基础系统、搜索、OSS）
 │  │ 
 │  ├─ace-auth-----------------鉴权中心
 │  │ 
 │  ├─ace-gate-----------------网关负载中心
 │  │ 
+│  ├─ace-common---------------通用脚手架
+│  │ 
 │  ├─ace-center---------------服务注册中心
 │  │   
-│  ├─ace-monitor--------------统一监控中心
-│  │
-│  ├─ace-config---------------统一配置中心
-│  │
-│  ├─ace-api------------------公共服务接口包
-│  │
-│  ├─ace-demo-----------------示例服务代码
+│  ├─ace-control--------------运维中心（监控、链路）
 │  │
 │  └─ace-sidebar--------------调用第三方语言
 │
@@ -202,16 +225,6 @@ Apache License Version 2.0
 ## 虽然本产品是开源产品，但未经本人允许擅自申请专利，将公开追究法律责任。
 
 
-
-
 # 我们的用户
 ![img](http://upload-images.jianshu.io/upload_images/5700335-67814644d39fce24.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)![image.png](http://upload-images.jianshu.io/upload_images/5700335-a6f45909f94ab3b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![NLDCF.png](https://s1.ax1x.com/2017/10/24/NLDCF.png)
-
-# 相信有了你们的支持，AG开源会越来越好，项目也会越来越完善。
-
-通过微信或支付宝，扫描下面的二维码，即可捐赠，如下图所示：
-
-微信 | 支付宝
----|---
-![微信](http://upload-images.jianshu.io/upload_images/5700335-41754303a4ccb703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50) | ![支付宝](http://upload-images.jianshu.io/upload_images/5700335-c4a626166c15058e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1080/q/50)
